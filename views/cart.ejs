@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Cart | FreshCart</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <nav class="navbar"> 
+
+    <div class="logo">
+        <i class="fa-solid fa-cart-shopping"></i>
+        <h2>FreshCart</h2>
+    </div>
+
+    <div class="nav-links">
+        <a href="/"><i class="fa-solid fa-house"></i>Home</a>
+        <a href="/products"> <i class="fa-solid fa-box-open"></i>Products</a>
+        <a href="/categories"><i class="fa-solid fa-table-cells-large"></i>Categories</a>
+    </div>
+
+    <form action="/products" method="GET" class="search-bar">
+
+    <input
+        type="text"
+        name="search"
+        placeholder="Search groceries..."
+    >
+
+    <button type="submit">
+        <i class="fa-solid fa-magnifying-glass"></i>
+    </button>
+
+    </form>
+
+    <div class="nav-icons">
+
+    <% if(user){ %>
+
+        <a href="/account">
+            <i class="fa-regular fa-user"></i>
+            <%= user.name %>
+        </a>
+
+    <% } else { %>
+
+        <a href="/login">
+            <i class="fa-regular fa-user"></i>
+            Login
+        </a>
+
+    <% } %>
+
+    <a href="/cart">
+        <i class="fa-solid fa-cart-shopping"></i>
+        Cart
+    </a>
+
+</div>
+    </nav>
+
+<h1 style="text-align:center; margin-top:30px;">
+    My Shopping Cart
+</h1>
+
+<div class="product-container">
+
+<% if(cartItems.length === 0){ %>
+
+    <h2 style="text-align:center;">
+        Your cart is empty.
+    </h2>
+
+<% } else { %>
+
+    <% cartItems.forEach(item => { %>
+
+        <div class="product-card">
+
+            <img
+                src="/images/<%= item.image %>"
+                alt="<%= item.product_name %>"
+            >
+
+            <h3><%= item.product_name %></h3>
+
+            <p>Price: ₹<%= item.price %></p>
+
+            <div class="quantity-box">
+
+    <a href="/decrease/<%= item.id %>">
+        <button>-</button>
+    </a>
+
+    <span><%= item.quantity %></span>
+
+    <a href="/increase/<%= item.id %>">
+        <button>+</button>
+    </a>
+
+</div>
+            <a href="/remove-cart/<%= item.id %>">
+    <button class="product-btn">
+        Remove
+    </button>
+</a>
+
+        </div>
+
+    <% }) %>
+
+<% } %>
+
+</div>
+
+<br>
+<hr>
+
+<div class="cart-summary">
+
+    <h2>Total : ₹<%= total %></h2>
+
+    <div class="cart-buttons">
+
+        <a href="/products" class="continue-btn">
+            Continue Shopping
+        </a>
+
+        <a href="/checkout" class="checkout-btn">
+            Proceed to Checkout
+        </a>
+
+    </div>
+
+</div>
+
+    <!-- ================= Footer ================= -->
+
+    <footer class="footer">
+
+    <div class="footer-container">
+
+        <div class="footer-about">
+            <h2>FreshCart</h2>
+            <p>
+                Fresh groceries delivered to your doorstep with quality,
+                affordability, and convenience.
+            </p>
+        </div>
+
+        <div class="footer-links">
+            <h3>Quick Links</h3>
+
+            <a href="/">Home</a>
+            <a href="/products">Products</a>
+            <a href="/categories">Categories</a>
+            <a href="/cart">Cart</a>
+        </div>
+
+        <div class="footer-contact">
+
+            <h3>Contact</h3>
+
+            <p>Email : support@freshcart.com</p>
+            <p>Phone : +91 9876543210</p>
+            <p>Location : India</p>
+
+        </div>
+
+    </div>
+
+    <hr>
+
+    <p class="copyright">
+        © 2026 FreshCart. All Rights Reserved.
+    </p>
+
+    </footer>
+
+</body>
+</html>

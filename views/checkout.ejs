@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout | FreshCart</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<!-- Navbar -->
+
+<nav class="navbar">
+
+    <div class="logo">
+        <i class="fa-solid fa-cart-shopping"></i>
+        <h2>FreshCart</h2>
+    </div>
+
+    <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="/products">Products</a>
+        <a href="/categories">Categories</a>
+    </div>
+
+    <div class="nav-icons">
+
+        <% if(user){ %>
+
+            <a href="/account">
+                <i class="fa-regular fa-user"></i>
+                <%= user.name %>
+            </a>
+
+        <% } else { %>
+
+            <a href="/login">
+                Login
+            </a>
+
+        <% } %>
+
+        <a href="/cart">
+            <i class="fa-solid fa-cart-shopping"></i>
+            Cart
+        </a>
+
+    </div>
+
+</nav>
+
+<!-- Checkout -->
+
+<div class="checkout-container">
+
+    <h2>Checkout</h2>
+
+    <h3>Customer Details</h3>
+
+    <p><strong>Name:</strong> <%= user.name %></p>
+    <p><strong>Email:</strong> <%= user.email %></p>
+
+    <hr>
+
+    <h3>Order Summary</h3>
+
+    <% cartItems.forEach(item => { %>
+
+        <div class="checkout-item">
+
+            <img src="/images/<%= item.image %>" width="80">
+
+            <div>
+
+                <h4><%= item.product_name %></h4>
+
+                <p>
+                    Quantity: <%= item.quantity %>
+                </p>
+
+                <p>
+                    ₹<%= item.price %>
+                </p>
+
+            </div>
+
+        </div>
+
+    <% }) %>
+
+    <hr>
+
+    <div class="checkout-total">
+
+    <h2>Total : ₹<%= total %></h2>
+
+</div>
+
+    <form action="/place-order" method="POST">
+
+        <button class="place-order">Place Order</button>
+
+    </form>
+
+</div>
+
+</body>
+</html>

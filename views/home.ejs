@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FreshCart</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <nav class="navbar"> 
+
+    <div class="logo">
+        <i class="fa-solid fa-cart-shopping"></i>
+        <h2>FreshCart</h2>
+    </div>
+
+    <div class="nav-links">
+        <a href="/"><i class="fa-solid fa-house"></i>Home</a>
+        <a href="/products"> <i class="fa-solid fa-box-open"></i>Products</a>
+        <a href="/categories"><i class="fa-solid fa-table-cells-large"></i>Categories</a>
+    </div>
+
+    <form action="/products" method="GET" class="search-bar">
+
+    <input
+        type="text"
+        name="search"
+        placeholder="Search groceries..."
+    >
+
+    <button type="submit">
+        <i class="fa-solid fa-magnifying-glass"></i>
+    </button>
+
+</form>
+
+
+
+    <div class="nav-icons">
+
+    <% if(user){ %>
+
+        <a href="/account">
+            <i class="fa-regular fa-user"></i>
+            <%= user.name %>
+        </a>
+
+    <% } else { %>
+
+        <a href="/login">
+            <i class="fa-regular fa-user"></i>
+            Login
+        </a>
+
+    <% } %>
+
+    <a href="/cart">
+        <i class="fa-solid fa-cart-shopping"></i>
+        Cart
+    </a>
+
+</div>
+
+    </nav>
+    <!-- ================= Hero Section ================= -->
+
+    <section class="hero">
+
+    <div class="hero-content">
+
+        <h1>Fresh Groceries Delivered to Your Doorstep</h1>
+
+        <p>
+            Shop fresh fruits, vegetables, dairy products,
+            snacks, and daily essentials at the best prices.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="/products" class="btn-primary">
+                Shop Now
+            </a>
+
+            <a href="/categories" class="btn-secondary">
+                Browse Categories
+            </a>
+
+        </div>
+
+    </div>
+
+    <div class="hero-image">
+
+        <img src="/images/mainhero.png" alt="Fresh Groceries">
+
+    </div>
+
+    </section>
+    <!-- ================= Categories ================= -->
+
+    <section class="categories">
+
+    <div class="section-title">
+        <h2>Shop by Categories</h2>
+        <p>Fresh products for every need.</p>
+    </div>
+
+    <div class="category-container">
+
+        <div class="category-card">
+            <img src="/images/vegetables.png" alt="">
+            <h3>Vegetables</h3>
+        </div>
+
+        <div class="category-card">
+            <img src="/images/fruits.png" alt="">
+            <h3>Fruits</h3>
+        </div>
+
+        <div class="category-card">
+            <img src="/images/dairy.png" alt="">
+            <h3>Dairy</h3>
+        </div>
+
+        <div class="category-card">
+            <img src="/images/bakery.png" alt="">
+            <h3>Bakery</h3>
+        </div>
+
+        <div class="category-card">
+            <img src="/images/beverages.png" alt="">
+            <h3>Beverages</h3>
+        </div>
+
+        <div class="category-card">
+            <img src="/images/snacks.png" alt="">
+            <h3>Snacks</h3>
+        </div>
+
+    </div>
+
+    </section>
+    <!-- ================= Featured Products ================= -->
+
+    <section class="featured-products">
+
+    <div class="section-title">
+        <h2>Featured Products</h2>
+        <p>Fresh picks for you.</p>
+    </div>
+
+    <div class="product-container">
+
+        <div class="product-card">
+            <img src="/images/apple.png" alt="Apple">
+            <h3>Fresh Apples</h3>
+            <p class="price">₹120 / kg</p>
+            <a href="/products" class="product-btn">Add to Cart</a>
+        </div>
+
+        <div class="product-card">
+            <img src="/images/milk.png" alt="Milk">
+            <h3>Fresh Milk</h3>
+            <p class="price">₹60</p>
+            <a href="/products" class="product-btn">Add to Cart</a>
+        </div>
+
+        <div class="product-card">
+            <img src="/images/bread.png" alt="Bread">
+            <h3>Whole Wheat Bread</h3>
+            <p class="price">₹45</p>
+            <a href="/products" class="product-btn">Add to Cart</a>
+        </div>
+
+        <div class="product-card">
+            <img src="/images/egg.png" alt="Eggs">
+            <h3>Farm Eggs</h3>
+            <p class="price">₹90</p>
+            <a href="/products" class="product-btn">Add to Cart</a>
+        </div>
+
+    </div>
+
+    </section>
+    <!-- ================= Why Choose Us ================= -->
+
+    <section class="why-us">
+
+    <div class="section-title">
+        <h2>Why Choose FreshCart?</h2>
+        <p>We deliver freshness, quality, and convenience every day.</p>
+    </div>
+
+    <div class="why-container">
+
+        <div class="why-card">
+            <i class="fa-solid fa-leaf"></i>
+            <h3>100% Fresh</h3>
+            <p>Fresh fruits and vegetables sourced daily.</p>
+        </div>
+
+        <div class="why-card">
+            <i class="fa-solid fa-truck-fast"></i>
+            <h3>Fast Delivery</h3>
+            <p>Quick delivery right to your doorstep.</p>
+        </div>
+
+        <div class="why-card">
+            <i class="fa-solid fa-tags"></i>
+            <h3>Best Prices</h3>
+            <p>Affordable prices with exciting daily offers.</p>
+        </div>
+
+        <div class="why-card">
+            <i class="fa-solid fa-shield-heart"></i>
+            <h3>Quality Guarantee</h3>
+            <p>Premium quality products with trusted brands.</p>
+        </div>
+
+    </div>
+
+    </section>
+    <!-- ================= Newsletter ================= -->
+
+    <section class="newsletter">
+
+    <div class="newsletter-content">
+
+        <h2>Subscribe to Our Newsletter</h2>
+
+        <p>
+            Get the latest offers, discounts, and fresh arrivals directly in your inbox.
+        </p>
+
+        <form class="newsletter-form">
+
+            <input
+                type="email"
+                placeholder="Enter your email"
+            >
+
+            <button type="submit">
+                Subscribe
+            </button>
+
+        </form>
+
+    </div>
+
+    </section>
+    <!-- ================= Footer ================= -->
+
+    <footer class="footer">
+
+    <div class="footer-container">
+
+        <div class="footer-about">
+            <h2>FreshCart</h2>
+            <p>
+                Fresh groceries delivered to your doorstep with quality,
+                affordability, and convenience.
+            </p>
+        </div>
+
+        <div class="footer-links">
+            <h3>Quick Links</h3>
+
+            <a href="/">Home</a>
+            <a href="/products">Products</a>
+            <a href="/categories">Categories</a>
+            <a href="/cart">Cart</a>
+        </div>
+
+        <div class="footer-contact">
+
+            <h3>Contact</h3>
+
+            <p>Email : support@freshcart.com</p>
+            <p>Phone : +91 9876543210</p>
+            <p>Location : India</p>
+
+        </div>
+
+    </div>
+
+    <hr>
+
+    <p class="copyright">
+        © 2026 FreshCart. All Rights Reserved.
+    </p>
+
+    </footer>
+</body>
+</html>
